@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Easy Shopping – CycleGo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f9fa;
+      padding: 30px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #00b894;
+    }
+
+    .brand-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .brand-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+    }
+
+    .brand-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .brand-card h3 {
+      margin-bottom: 10px;
+      color: #00b894;
+    }
+
+    .brand-card p {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .action-buttons button {
+      padding: 8px 12px;
+      margin: 5px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .wishlist-btn {
+      background: #fab1a0;
+      color: #fff;
+    }
+
+    .wishlist-btn:hover {
+      background: #ff7675;
+    }
+
+    .compare-btn {
+      background: #81ecec;
+      color: #2d3436;
+    }
+
+    .compare-btn:hover {
+      background: #00cec9;
+      color: white;
+    }
+  </style>
+
+  <script>
+    function addToWishlist(cycle) {
+      alert(`${cycle} added to your wishlist!`);
+    }
+
+    function addToCompare(cycle) {
+      alert(`${cycle} added to comparison list!`);
+    }
+  </script>
+</head>
+<body>
+
+  <h1>Easy Shopping – Explore & Compare</h1>
+
+  <div class="brand-list">
+    <div class="brand-card">
+      <img src="https://m.media-amazon.com/images/I/61uctJmbvTL._UF894,1000_QL80_.jpg" alt="Firefox Voya" />
+      <h3>Firefox Voya</h3>
+      <p>Sleek hybrid cycle with lightweight frame and disc brakes.</p>
+      <div class="action-buttons">
+        <button class="wishlist-btn" onclick="addToWishlist('Firefox Voya')">Add to Wishlist</button>
+        <button class="compare-btn" onclick="addToCompare('Firefox Voya')">Compare</button>
+      </div>
+    </div>
+
+    <div class="brand-card">
+      <img src="https://m.media-amazon.com/images/I/81-WjQxDluL.jpg" alt="Ninety One Defeatr" />
+      <h3>Ninety One Defeatr</h3>
+      <p>Rugged design built for power-packed city and trail rides.</p>
+      <div class="action-buttons">
+        <button class="wishlist-btn" onclick="addToWishlist('Ninety One Defeatr')">Add to Wishlist</button>
+        <button class="compare-btn" onclick="addToCompare('Ninety One Defeatr')">Compare</button>
+      </div>
+    </div>
+
+    <div class="brand-card">
+      <img src="https://static.wixstatic.com/media/c09efb_634a05ec4446457994491e5eebf06ace~mv2.png/v1/fill/w_835,h_561,al_c,q_90,enc_avif,quality_auto/c09efb_634a05ec4446457994491e5eebf06ace~mv2.png" alt="Electric Roadster" />
+      <h3>Electric Roadster</h3>
+      <p>Elegant e-bike with silent motor and smart battery system.</p>
+      <div class="action-buttons">
+        <button class="wishlist-btn" onclick="addToWishlist('Electric Roadster')">Add to Wishlist</button>
+        <button class="compare-btn" onclick="addToCompare('Electric Roadster')">Compare</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

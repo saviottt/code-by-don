@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premium Cycles – CycleGo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f9fa;
+      padding: 30px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #00b894;
+    }
+
+    .search-bar {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    input[type="text"] {
+      width: 300px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      font-size: 16px;
+    }
+
+    .cycle-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .cycle-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+    }
+
+    .cycle-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .cycle-card h3 {
+      margin: 10px 0 5px;
+      color: #00b894;
+    }
+
+    .cycle-card p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #d63031;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('search');
+      searchInput.addEventListener('input', function () {
+        const query = this.value.toLowerCase();
+        const cards = document.querySelectorAll('.cycle-card');
+        cards.forEach(card => {
+          const name = card.querySelector('h3').textContent.toLowerCase();
+          card.style.display = name.includes(query) ? 'block' : 'none';
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <h1>Premium Cycles</h1>
+
+  <div class="search-bar">
+    <input type="text" id="search" placeholder="Search cycle by name..." />
+  </div>
+
+  <div class="cycle-list">
+    <div class="cycle-card">
+      <img src="https://m.media-amazon.com/images/I/51dFPn0l7sL._UF894,1000_QL80_.jpg" alt="Cycle 1" />
+      <h3>Hero Sprint Pro</h3>
+      <p>A stylish and durable road bike for city commuting.</p>
+      <p class="price">₹25,999</p>
+    </div>
+
+    <div class="cycle-card">
+      <img src="https://evelecson.com/wp-content/uploads/2024/02/1-Elecson-700C-Premium-E-Bike-Full-Image.webp" alt="Cycle 2" />
+      <h3>Elecson E-Bike 700C</h3>
+      <p>Electric hybrid bike with great range and comfort.</p>
+      <p class="price">₹68,000</p>
+    </div>
+
+    <div class="cycle-card">
+      <img src="https://d2f9uwgpmber13.cloudfront.net/public/uploads/mobile/7670d99005b7c47a1718111931625.png" alt="Cycle 3" />
+      <h3>Leader Beast 29T</h3>
+      <p>Perfect mountain bike with wide tyres and disc brakes.</p>
+      <p class="price">₹31,500</p>
+    </div>
+  </div>
+
+</body>
+</html>

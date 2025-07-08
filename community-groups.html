@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Community Groups – CycleGo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f1f2f6;
+      color: #2d3436;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00b894;
+      margin-bottom: 20px;
+    }
+
+    .search-bar {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    input[type="text"] {
+      width: 300px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      font-size: 16px;
+    }
+
+    .group-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .group-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 320px;
+      text-align: left;
+    }
+
+    .group-card h3 {
+      color: #00b894;
+      margin-bottom: 10px;
+    }
+
+    .group-card p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .join-btn {
+      margin-top: 10px;
+      background: #00b894;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .join-btn:hover {
+      background: #019875;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const input = document.getElementById("search");
+      input.addEventListener("input", () => {
+        const query = input.value.toLowerCase();
+        document.querySelectorAll(".group-card").forEach(card => {
+          const name = card.querySelector("h3").textContent.toLowerCase();
+          const location = card.querySelector(".location").textContent.toLowerCase();
+          card.style.display = name.includes(query) || location.includes(query) ? "block" : "none";
+        });
+      });
+    });
+
+    function joinGroup(name) {
+      alert(`You have requested to join "${name}" group.`);
+    }
+  </script>
+</head>
+<body>
+
+  <h1>CycleGo Community Groups</h1>
+
+  <div class="search-bar">
+    <input type="text" id="search" placeholder="Search by group or city..." />
+  </div>
+
+  <div class="group-list">
+    <div class="group-card">
+      <h3>Thodupuzha Riders</h3>
+      <p class="location">📍 Thodupuzha, Kerala</p>
+      <p>Friendly group exploring hills every weekend.</p>
+      <p>👥 Members: 42</p>
+      <p>📅 Rides: Saturdays at 6:00 AM</p>
+      <button class="join-btn" onclick="joinGroup('Thodupuzha Riders')">Join Group</button>
+    </div>
+
+    <div class="group-card">
+      <h3>Chennai Cyclists Club</h3>
+      <p class="location">📍 Chennai, Tamil Nadu</p>
+      <p>Urban group focusing on long-distance and fitness rides.</p>
+      <p>👥 Members: 78</p>
+      <p>📅 Rides: Sundays at 5:30 AM</p>
+      <button class="join-btn" onclick="joinGroup('Chennai Cyclists Club')">Join Group</button>
+    </div>
+
+    <div class="group-card">
+      <h3>Bangalore Trail Blazers</h3>
+      <p class="location">📍 Bangalore, Karnataka</p>
+      <p>Weekend trail riders, hill climbs, and photo journeys.</p>
+      <p>👥 Members: 65</p>
+      <p>📅 Rides: Saturdays at 6:15 AM</p>
+      <button class="join-btn" onclick="joinGroup('Bangalore Trail Blazers')">Join Group</button>
+    </div>
+
+    <div class="group-card">
+      <h3>Kochi Spin Squad</h3>
+      <p class="location">📍 Kochi, Kerala</p>
+      <p>Beachside and backwater routes with food breaks.</p>
+      <p>👥 Members: 51</p>
+      <p>📅 Rides: Sundays at 6:45 AM</p>
+      <button class="join-btn" onclick="joinGroup('Kochi Spin Squad')">Join Group</button>
+    </div>
+  </div>
+
+</body>
+</html>

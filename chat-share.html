@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chat & Share – CycleGo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f1f2f6;
+      color: #2d3436;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #00b894;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .post-box {
+      margin-bottom: 30px;
+    }
+
+    .post-box textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      resize: none;
+      font-size: 16px;
+      height: 100px;
+    }
+
+    .post-box input[type="file"] {
+      margin-top: 10px;
+    }
+
+    .post-box button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #00b894;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .feed {
+      margin-top: 20px;
+    }
+
+    .post {
+      background: #f9f9f9;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .post img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .post h4 {
+      margin: 0;
+      color: #0984e3;
+    }
+
+    .post p {
+      margin-top: 8px;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Chat & Share – 🚴‍♀️ CycleGo Community</h1>
+    <p>Share your stories, tips, and photos with other riders</p>
+  </header>
+
+  <div class="container">
+    <div class="post-box">
+      <textarea id="postText" placeholder="Share your ride experience, tips, or shoutouts..."></textarea>
+      <br>
+      <input type="file" id="postImage" accept="image/*">
+      <br>
+      <button onclick="submitPost()">Post Now</button>
+    </div>
+
+    <div class="feed" id="feed">
+      <!-- New posts will appear here -->
+    </div>
+  </div>
+
+  <script>
+    function submitPost() {
+      const text = document.getElementById('postText').value.trim();
+      const imageInput = document.getElementById('postImage');
+      const feed = document.getElementById('feed');
+
+      if (!text && !imageInput.files.length) {
+        alert("Please write something or upload an image.");
+        return;
+      }
+
+      const post = document.createElement('div');
+      post.className = 'post';
+
+      const userName = document.createElement('h4');
+      userName.textContent = '🚴‍♂️ Cycler';
+
+      const caption = document.createElement('p');
+      caption.textContent = text;
+
+      post.appendChild(userName);
+      if (text) post.appendChild(caption);
+
+      if (imageInput.files.length > 0) {
+        const file = imageInput.files[0];
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          post.appendChild(img);
+          feed.prepend(post);
+        }
+        reader.readAsDataURL(file);
+      } else {
+        feed.prepend(post);
+      }
+
+      document.getElementById('postText').value = '';
+      imageInput.value = '';
+    }
+  </script>
+
+</body>
+</html>
